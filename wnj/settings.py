@@ -131,17 +131,11 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 AWS_STORAGE_BUCKET_NAME = config('S3_BUCKET_NAME', default=None)
 
 if not AWS_STORAGE_BUCKET_NAME:
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATIC_URL = '/static/'
 
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     MEDIA_URL = '/media/'
-
-    # Extra places for collectstatic to find static files.
-    STATICFILES_DIRS = (
-        os.path.join(PROJECT_ROOT, 'static'),
-        os.path.join(BASE_DIR, 'media'),
-    )
 
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 else:
@@ -154,7 +148,7 @@ else:
     AWS_LOCATION = 'static'
 
     STATICFILES_DIRS = [
-        os.path.join(PROJECT_ROOT, 'static'),
+        os.path.join(PROJECT_ROOT, 'core/static'),
     ]
     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
