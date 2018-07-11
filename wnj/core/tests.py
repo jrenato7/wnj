@@ -11,3 +11,11 @@ class HomeTest(TestCase):
     def test_template(self):
         """Must use index.html"""
         self.assertTemplateUsed(self.resp, 'index.html')
+
+    def test_signup_link(self):
+        """Html must contain link to sign up"""
+        self.assertContains(self.resp, 'href="/signup/"')
+
+    def test_gallery_link(self):
+        """Html must contain link to registry"""
+        self.assertContains(self.resp, 'href="/gallery/"')
