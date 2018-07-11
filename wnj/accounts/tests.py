@@ -7,19 +7,21 @@ class AccountsSignUpGet(TestCase):
         self.resp = self.client.get('/signup/')
 
     def test_status_code(self):
+        """Get /signup/ must return status code 200"""
         self.assertEqual(self.resp.status_code, 200)
 
     def test_template_used(self):
+        """Must use the template accounts/account_sign_up.html"""
         self.assertTemplateUsed(self.resp, 'accounts/account_sign_up.html')
 
     def test_html(self):
         """Html must contain input tags"""
         tags = (
             ('<form', 1),
-            ('<input', 5),
+            ('<input', 6),
             ('type="text"', 1),
             ('type="email"', 1),
-            ('type="password"', 1),
+            ('type="password"', 2),
             ('type="submit"', 1)
         )
         for text, count in tags:
