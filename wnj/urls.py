@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-import wnj.core.views
+from wnj.core.views import home
 from wnj.accounts.views import sign_up
+from django.contrib.auth.views import login, logout
 
 
 urlpatterns = [
-    path('', wnj.core.views.home),
+    path('', home),
     path('admin/', admin.site.urls),
     path('signup/', sign_up),
+    path('login/', login),
+    path('logout/', logout),
 ]

@@ -117,6 +117,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # New auth user model
 AUTH_USER_MODEL = 'accounts.User'
 
+AUTHENTICATION_BACKENDS = [
+'django.contrib.auth.backends.ModelBackend',
+    'wnj.accounts.backends.Authenticate']
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 

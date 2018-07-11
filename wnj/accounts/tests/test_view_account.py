@@ -1,4 +1,5 @@
 from django.test import TestCase
+
 from wnj.accounts.forms import RegisterForm
 from wnj.accounts.models import User
 
@@ -67,6 +68,7 @@ class AccountSignUpSuccessMessage(TestCase):
             password2='JicL12pWs9')
         resp = self.client.post('/signup/', data=data, follow=True)
         self.assertContains(resp, 'Success')
+
 
 class AccountSignUpPostInvalid(TestCase):
     def setUp(self):

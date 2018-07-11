@@ -17,7 +17,7 @@ def sign_up(request):
             return HttpResponseRedirect('/signup/')
         else:
             return render(
-                request, 'accounts/account_sign_up.html', {'form':form})
+                request, 'accounts/account_sign_up.html', {'form': form})
 
     context = {'form': RegisterForm()}
     return render(request, 'accounts/account_sign_up.html', context)

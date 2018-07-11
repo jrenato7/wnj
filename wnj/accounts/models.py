@@ -1,7 +1,7 @@
-from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
+from django.db import models
 
 
 class UserManager(BaseUserManager):
@@ -53,8 +53,8 @@ class User(AbstractBaseUser):
         unique=True,
     )
     is_active = models.BooleanField(default=True)
-    staff = models.BooleanField(default=False) # an admin user; not a superuser
-    is_admin = models.BooleanField(default=False) # a superuser
+    staff = models.BooleanField(default=False)  # an admin user; not a superuser
+    is_admin = models.BooleanField(default=False)  # a superuser
 
     objects = UserManager()
 
