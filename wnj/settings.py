@@ -48,7 +48,10 @@ PROJECT_APPS = [
     'wnj.accounts',
 ]
 
-THIRD_PARTY_APPS = ['storages',]
+THIRD_PARTY_APPS = [
+    'storages',
+    'test_without_migrations',
+]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
@@ -111,6 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# New auth user model
+AUTH_USER_MODEL = 'accounts.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

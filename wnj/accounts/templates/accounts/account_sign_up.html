@@ -10,12 +10,13 @@
 </body>
 
 <h1>Fill out the fields below to subscribe</h1>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert success"><p> {{ message }}</p></div>
+    {% endfor %}
+{% endif %}
 <form action="." method="post">
     {% csrf_token %}
-    <p>
-        <label>Name</label>
-        <input type="text" name="name" maxlength="100">
-    </p>
     <p>
         <label>Email</label>
         <input type="email" name="email">
