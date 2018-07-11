@@ -45,6 +45,7 @@ DEFAULT_APPS = [
 
 PROJECT_APPS = [
     'wnj.core',
+    'wnj.accounts',
 ]
 
 THIRD_PARTY_APPS = ['storages',]
