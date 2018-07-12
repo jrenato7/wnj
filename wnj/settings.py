@@ -46,6 +46,7 @@ DEFAULT_APPS = [
 PROJECT_APPS = [
     'wnj.core',
     'wnj.accounts',
+    'wnj.galleries',
 ]
 
 THIRD_PARTY_APPS = [
@@ -121,7 +122,7 @@ AUTHENTICATION_BACKENDS = [
 'django.contrib.auth.backends.ModelBackend',
     'wnj.accounts.backends.Authenticate']
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/moments/"
 LOGOUT_REDIRECT_URL = "/"
 
 # Internationalization
@@ -167,7 +168,7 @@ else:
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-    DEFAULT_FILE_STORAGE = 'core.storage_backends.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'wnj.core.storage_backends.MediaStorage'
 
     MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
     MEDIA_ROOT = MEDIA_URL

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temp List</title>
+</head>
+<body>
+<form enctype="multipart/form-data" action="." method="post">
+    {% csrf_token %}
+    <input type="file" name="image">
+    <input type="submit" name="send">
+</form>
+
+</body>
+</html>
