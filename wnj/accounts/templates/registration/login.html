@@ -1,47 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Temp Layout</title>
-</head>
-<body>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="page-header">
-            <h1>Temp layout for user login</h1>
-        </div>
-        <form class="form-horizontal" method="post">
-            {% csrf_token %}
-            {% for error in form.non_field_errors %}
-            <div class="alert alert-danger">
-                {{ error }}
+<style>
+       .l123{ color: rgba(34, 35, 36, 0.7) !important;}
+</style>
+{% extends 'base.html' %}
+
+{% block content %}
+        <!--========== PAGE CONTENT ==========-->
+        <div class="g-bg-position--center g-fullheight--xs" style="background: url('img/.jpg');">
+            <div class="container js__ver-center-aligned">
+                <div class="g-text-center--xs">
+                    <div class="g-margin-t-40--xs g-margin-b-60--xs g-margin-b-80--sm">
+                        <h1 class="g-font-size-32--xs g-font-size-50--sm g-font-size-60--md g-margin-b-30--xs" style="text-transform: initial;">Make this unique moment.</h1>
+                        <p class="text-uppercase g-font-size-20--md g-font-weight--300">Login</p>
+                    </div>
+                    <form class="form-horizontal" method="post">
+                        {% csrf_token %}
+                        {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                        </div>
+                        {% endfor %}
+                        <div class="row g-margin-b-80--xs">
+                            <div class="col-sm-4 col-sm-offset-2 col-xs-6 g-full-width--xs g-margin-b-30--xs g-margin-b-0--md">
+                                {{ form.username.errors }}
+                                <div class="input-group {% if form.username.errors %} has-error{% endif %}">
+                                    <span class="input-group-btn">
+                                        <i class="s-form-v4__icon ti-user"></i>
+                                    </span>
+                                    <input type="email" name="username" class="form-control s-form-v4__input" placeholder="Email" style="text-transform: none;">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6 g-full-width--xs">
+                                {{ form.password.errors }}
+                                <div class="input-group {% if form.password.errors %} has-error{% endif %}">
+                                    <span class="input-group-btn">
+                                        <i class="s-form-v4__icon ti-key"></i>
+                                    </span>
+                                    <input type="password" name="password" class="form-control s-form-v4__input" placeholder="Password" style="text-transform: none;">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="text-uppercase s-btn s-btn--md s-btn--dark-brd g-radius--50 g-padding-x-50--xs g-margin-b-20--xs">Submit</button>
+                    </form>
+                </div>
             </div>
-            {% endfor %}
-                <div class="form-group{% if form.username.errors %} has-error{% endif %}">
-                  <label for="{{ form.username.auto_id }}" class="col-md-3 control-label">{{ form.username.label }}</label>
-                  <div class="col-md-9">
-                    {{ form.username }}
-                    {% for error in form.username.errors %}
-                    <span class="help-block">{{ error }}</span>
-                    {% endfor %}
-                  </div>
-                </div>
-                <div class="form-group{% if form.password.errors %} has-error{% endif %}">
-                  <label for="{{ form.password.auto_id }}" class="col-md-3 control-label">{{ form.password.label }}</label>
-                  <div class="col-md-9">
-                    {{ form.password }}
-                    {% for error in form.password.errors %}
-                    <span class="help-block">{{ error }}</span>
-                    {% endfor %}
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-9 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                  </div>
-                </div>
-        </form>
-    </div>
-</div>
-</body>
-</html>
+        </div>
+        <!--========== END PAGE CONTENT ==========-->
+
+{% endblock content %}

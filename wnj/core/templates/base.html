@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{% block title %} Nick & Juliette {% endblock title %}</title>
+        <meta name="keywords" content="HTML5 Theme" />
+        <meta name="description" content="Megakit - HTML5 Theme">
+        <meta name="author" content="keenthemes.com">
+
+        <!-- Web Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+
+        <!-- Vendor Styles -->
+        <link href="https://bootstrapdocs.com/v3.3.6/docs/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'vendor/themify/themify.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'vendor/swiper/swiper.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'vendor/cubeportfolio/css/cubeportfolio.min.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- Theme Styles -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'css/global/global.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <!-- End Head -->
+<!-- Body -->
+    <body>
+        {% block navbar %}
+        <!--========== HEADER V2 ==========-->
+        <header class="navbar-fixed-top s-header-v2 js__header-sticky">
+            <!-- Navbar -->
+            <nav class="s-header-v2__navbar">
+                <div class="container g-display-table--lg">
+                    <!-- Navbar Row -->
+                    <div class="s-header-v2__navbar-row">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="s-header-v2__navbar-col">
+                            <button type="button" class="collapsed s-header-v2__toggle" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                                <span class="s-header-v2__toggle-icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="s-header-v2__navbar-col">
+                            <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
+                                <ul class="s-header-v2__nav">
+                                    <li class="s-header-v2__nav-item"><a href="/" class="s-header-v2__nav-link l123">Home</a></li>
+                                    {% if request.user.is_authenticated == True %}
+                                        <li class="s-header-v2__nav-item"><a href="/gallery/" class="s-header-v2__nav-link l123">Gallery</a></li>
+                                        <li class="s-header-v2__nav-item"><a href="/moments/" class="s-header-v2__nav-link l123">Moments</a></li>
+                                        <li class="s-header-v2__nav-item"><a href="/logout/" class="s-header-v2__nav-link l123">Logout</a></li>
+                                    {% else %}
+                                        <li class="s-header-v2__nav-item"><a href="/login/" class="s-header-v2__nav-link l123">Login</a></li>
+                                        <li class="s-header-v2__nav-item"><a href="/signup/" class="s-header-v2__nav-link l123">Sign Up</a></li>
+                                    {% endif %}
+
+
+                                </ul>
+                            </div>
+                            <!-- End Nav Menu -->
+                        </div>
+                    </div>
+                    <!-- End Navbar Row -->
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </header>
+        <!--========== END HEADER V2 ==========-->
+        {% endblock navbar %}
+
+
+        {% block content %}
+        {% endblock content %}
+
+
+     <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+        <!-- Vendor -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'vendor/jquery.migrate.min.js' %}"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="{% static 'vendor/swiper/swiper.jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/global.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/components/header-sticky.min.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'js/components/swiper.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/components/equal-height.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/components/parallax.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/components/wow.min.js' %}"></script>
+        <!--========== END JAVASCRIPTS ==========-->
+
+    </body>
+    <!-- End Body -->
+</html>

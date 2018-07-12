@@ -17,5 +17,5 @@ class HomeTest(TestCase):
         self.assertContains(self.resp, 'href="/signup/"')
 
     def test_gallery_link(self):
-        """Html must contain link to registry"""
-        self.assertContains(self.resp, 'href="/gallery/"')
+        """Html must contain link to login"""
+        self.assertContains(self.resp, 'href="/login/"')

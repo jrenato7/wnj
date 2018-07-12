@@ -15,7 +15,7 @@ class AccountsSignUpGet(TestCase):
 
     def test_template_used(self):
         """Must use the template accounts/account_sign_up.html"""
-        self.assertTemplateUsed(self.resp, 'accounts/account_sign_up.html')
+        self.assertTemplateUsed(self.resp, 'accounts/signup.html')
 
     def test_html(self):
         """Html must contain input tags"""
@@ -44,6 +44,7 @@ class AccountSignUpPostValid(TestCase):
 
     def setUp(self):
         data = dict(
+            first_name='Nick',
             email='nickb@wnj.com',
             password='NicL12pWs9',
             password2='NicL12pWs9')
@@ -63,6 +64,7 @@ class AccountSignUpSuccessMessage(TestCase):
     def test_message(self):
         """The template must have a success message"""
         data = dict(
+            first_name='Juliette',
             email='juliette@wnj.com',
             password='JicL12pWs9',
             password2='JicL12pWs9')
@@ -81,7 +83,7 @@ class AccountSignUpPostInvalid(TestCase):
 
     def test_template(self):
         self.assertTemplateUsed(self.resp,
-                                'accounts/account_sign_up.html')
+                                'accounts/signup.html')
 
     def test_has_form(self):
         form = self.resp.context['form']

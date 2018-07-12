@@ -3,7 +3,7 @@ from django.db import models
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None):
+    def create_user(self,first_name, email, password=None):
         """
         Creates and saves a User with the given email and password.
         """
@@ -17,7 +17,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_staffuser(self, email, password):
+    def create_staffuser(self, first_name, email, password):
         """
         Creates and saves a staff user with the given email and password.
         """
@@ -43,6 +43,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+    first_name = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
@@ -51,7 +52,6 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)  # an admin user; not a superuser
     is_admin = models.BooleanField(default=False)  # a superuser
-    first_name = models.CharField(max_length=30, null=True, blank=True)
     created_at = models.DateTimeField(auto_now=True)
 
     objects = UserManager()

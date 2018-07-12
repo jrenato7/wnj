@@ -5,6 +5,7 @@ from .models import User
 
 
 class RegisterForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=30)
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password',
                                 widget=forms.PasswordInput)

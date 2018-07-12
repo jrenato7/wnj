@@ -1,82 +1,53 @@
+{%  extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <!-- Begin Head -->
-    <head>
-        <!-- Basic -->
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Wedding Nick and Juliette</title>
-        <meta name="keywords" content="HTML5 Theme" />
-        <meta name="description" content="Megakit - HTML5 Theme">
-        <meta name="author" content="keenthemes.com">
+{% block content %}
 
-        <!-- Web Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
-
-        <!-- Vendor Styles -->
-        <link href="https://bootstrapdocs.com/v3.3.6/docs/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/animate.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
-
-        <!-- Theme Styles -->
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="css/global/global.css" rel="stylesheet" type="text/css"/>
-
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-    </head>
-    <!-- End Head -->
-<body>
-
-<!--========== HEADER V2 ==========-->
-        <header class="navbar-fixed-top s-header-v2 js__header-sticky">
-            <!-- Navbar -->
-            <nav class="s-header-v2__navbar">
-                <div class="container g-display-table--lg">
-                    <!-- Navbar Row -->
-                    <div class="s-header-v2__navbar-row">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="s-header-v2__navbar-col">
-                            <button type="button" class="collapsed s-header-v2__toggle" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
-                                <span class="s-header-v2__toggle-icon-bar"></span>
-                            </button>
-                        </div>
-
-                        <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
-                            <!-- Logo -->
-                            <div class="s-header-v2__logo">
-                                <a href="index.html" class="s-header-v2__logo-link">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="img/logo-white.png" alt="Dublin Logo">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="img/logo.png" alt="Dublin Logo">
-                                </a>
+    <!--========== SWIPER SLIDER ==========-->
+    <div class="s-swiper js__swiper-slider">
+        <!-- Swiper Wrapper -->
+        <div class="swiper-wrapper">
+            <div class="s-promo-block-v4 g-fullheight--xs g-bg-position--center swiper-slide" style="background: url({% static 'img/nick_juliette_bg0.jpg' %});">
+                <div class="container g-text-right--xs g-ver-center--xs">
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-5">
+                            <div class="g-margin-b-50--xs">
+                                <h2 class="g-font-size-32--xs g-font-size-45--sm g-font-size-55--md g-color--white">Mr & Mrs<br> Burkhardt</h2>
+                                <p class="g-font-size-18--xs g-font-size-22--sm g-color--white">Nick fell in love with Dr. Juliette Silverton when he was investigating a hit-and-run case. In 2009 he invited her to move in with him. Now, they want to get married as soon as possible.</p>
                             </div>
-                            <!-- End Logo -->
-                        </div>
-
-                        <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
-                                <ul class="s-header-v2__nav">
-                                    <li class="s-header-v2__nav-item"><a href="/" class="s-header-v2__nav-link">Home</a></li>
-                                    <li class="s-header-v2__nav-item"><a href="/signup/" class="s-header-v2__nav-link">Sign up</a></li>
-                                    <li class="s-header-v2__nav-item"><a href="/gallery/" class="s-header-v2__nav-link">Gallery</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Nav Menu -->
                         </div>
                     </div>
-                    <!-- End Navbar Row -->
                 </div>
-            </nav>
-            <!-- End Navbar -->
-        </header>
-        <!--========== END HEADER V2 ==========-->
+            </div>
+            <div class="s-promo-block-v4 g-fullheight--xs g-bg-position--center swiper-slide" style="background: url({% static 'img/nick_bg.jpg' %});">
+                <div class="container g-ver-center--xs">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="g-margin-b-50--xs">
+                                <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white">Nick<br>Burkhardt</h1>
+                                <p class="g-font-size-18--xs g-font-size-22--sm g-color--white">Nicholas "Nick" Burkhardt (born June 18, 1982) is a Grimm and detective for the Portland Police Department. Growing up, he was not exposed to any information regarding his Grimm heritage or the Wesen that surrounded him. He learned about these largely from his own experiences since 2011, which made him unique among Grimms and generally promoting the development of more socially acceptable interaction with all individuals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s-promo-block-v4 g-fullheight--xs g-bg-position--center swiper-slide" style="background: url({% static 'img/juliette_bg3.jpg' %});">
+                <div class="container g-text-right--xs g-ver-center--xs">
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-5">
+                            <div class="g-margin-b-50--xs">
+                                <h2 class="g-font-size-32--xs g-font-size-45--sm g-font-size-55--md g-color--white">Juliette<br>Silverton</h2>
+                                <p class="g-font-size-18--xs g-font-size-22--sm g-color--white">Doctor Juliette Silverton is a domestic animal veterinarian. She studied at Oregon State University, located about 90 minutes from her and Nick's former home in Portland, Oregon. She worked at the Roseway Veterinary Hospital beginning in 2006.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Swiper Wrapper -->
 
-<h1> Welcome to the Nick and Juliette wedding page!</h1>
-</body>
-</html>
+        <!-- Pagination -->
+        <div class="s-swiper__pagination-v1 s-swiper__pagination-v1--bc s-swiper__pagination-v1--white js__swiper-pagination"></div>
+    </div>
+    <!--========== END SWIPER SLIDER ==========-->
+
+{% endblock content %}

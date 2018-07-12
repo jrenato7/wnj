@@ -49,6 +49,10 @@ class UserGalleryTest(TestCase):
         """Must use template galleries/moments.html"""
         self.assertTemplateUsed(self.resp, 'galleries/moments.html')
 
+    def test_add_form(self):
+        form = self.resp.context['form']
+        self.assertIsInstance(form, GalleryAddForm)
+
 
 class GalleryAddGet(TestCase):
     def setUp(self):

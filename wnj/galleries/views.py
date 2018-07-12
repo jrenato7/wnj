@@ -19,7 +19,18 @@ def gallery(request):
 
 @login_required
 def moments(request):
-    context = {'images': Gallery.objects.filter(user=request.user)}
+    if request.method == 'POST':
+        form = GalleryAddForm(request.POST, request.FILES)
+        if form.is_valid():
+            img = _upload_image(request.FILES['image'], request.user.email)
+            Gallery.objects.create(user=request.user, image=img)
+            return HttpResponseRedirect('/moments/')
+        else:
+            import pprint; pprint.pprint(form.errors)
+            context = {'form': form}
+    else:
+        context = {'form': GalleryAddForm()}
+    context.update({'images': Gallery.objects.filter(user=request.user)})
     return render(request, 'galleries/moments.html', context)
 
 
