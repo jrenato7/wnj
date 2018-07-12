@@ -19,6 +19,7 @@
         <link href="https://bootstrapdocs.com/v3.3.6/docs/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css"/>
         <link href="{% static 'vendor/themify/themify.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'vendor/scrollbar/scrollbar.min.css' %}" rel="stylesheet" type="text/css"/>
         <link href="{% static 'vendor/swiper/swiper.min.css' %}" rel="stylesheet" type="text/css"/>
         <link href="{% static 'vendor/cubeportfolio/css/cubeportfolio.min.css' %}" rel="stylesheet" type="text/css"/>
 
@@ -29,7 +30,7 @@
     </head>
     <!-- End Head -->
 <!-- Body -->
-    <body>
+    <body class="signup">
         {% block navbar %}
         <!--========== HEADER V2 ==========-->
         <header class="navbar-fixed-top s-header-v2 js__header-sticky">
@@ -81,7 +82,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript" src="{% static 'vendor/jquery.migrate.min.js' %}"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+        <script type="text/javascript" src="{% static 'vendor/scrollbar/jquery.scrollbar.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'vendor/swiper/swiper.jquery.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'vendor/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/global.min.js' %}"></script>
