@@ -16,4 +16,4 @@ class Gallery(models.Model):
         ordering = ('-created_at', )
 
     def __str__(self):
-        return self.user
+        return self.user.email
