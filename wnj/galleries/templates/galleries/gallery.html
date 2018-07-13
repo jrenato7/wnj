@@ -10,9 +10,9 @@
         <div class="container g-padding-y-100--xs">
             <div class="s-portfolio">
                 <div id="js__filters-portfolio-gallery" class="s-portfolio__filter-v1 cbp-l-filters-text cbp-l-filters-center">
-                    <div data-filter="*" class="s-portfolio__filter-v1-item cbp-filter-item cbp-filter-item-active">Show All</div>
-                    <div data-filter=".graphic" class="s-portfolio__filter-v1-item cbp-filter-item">by date</div>
-                    <div data-filter=".logos" class="s-portfolio__filter-v1-item cbp-filter-item">Likes</div>
+                    <div data-filter="*" class="s-portfolio__filter-v1-item cbp-filter-item">Order pictures by</div>
+                    <div data-filter=".graphic" class="s-portfolio__filter-v1-item cbp-filter-item"><a href="/gallery/date" target="_self">date</a></div>
+                    <div data-filter=".logos" class="s-portfolio__filter-v1-item cbp-filter-item"><a href="/gallery/like" target="_self">likes</a></div>
                     <!--<div data-filter=".motion" class="s-portfolio__filter-v1-item cbp-filter-item">Motion</div>-->
                 </div>
             </div>
@@ -24,7 +24,7 @@
             <div id="js__grid-portfolio-gallery" class="cbp">
                 {% for image in images %}
                 <!-- Item 1-->
-                <div class="s-portfolio__item cbp-item logos motion">
+                <div class="s-portfolio__item cbp-item logos graphic">
                     <div class="s-portfolio__img-effect">
                         <img src="{{ image.image }}" alt="Portfolio Image">
                     </div>

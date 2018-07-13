@@ -12,8 +12,12 @@ from wnj.galleries.models import Gallery
 
 
 @login_required
-def gallery(request):
-    context = {'images': Gallery.objects.filter(approved=True)}
+def gallery(request, by):
+    if by == 'like':
+        gallery = Gallery.objects.filter(approved=True).order_by('-likes')
+    else:
+        gallery = Gallery.objects.filter(approved=True).order_by('-created_at')
+    context = {'images': gallery}
     return render(request, 'galleries/gallery.html', context)
 
 

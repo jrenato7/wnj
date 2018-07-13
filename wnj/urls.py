@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib.auth.views import login, logout
 
 from wnj.core.views import home
@@ -28,7 +28,7 @@ urlpatterns = [
     path('signup/', sign_up),
     path('login/', login),
     path('logout/', logout),
-    path('gallery/', gallery),
+    re_path(r'^gallery/(?P<by>\w+)?/?$', gallery, name='gallery'),
     path('moments/', moments),
     path('add_picture/', add_picture),
     path('like/<int:pk>', like),

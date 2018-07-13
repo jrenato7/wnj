@@ -7,7 +7,7 @@ from wnj.accounts.models import User
 class Gallery(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField()
-    created_at = models.DateField(auto_now=True)
+    created_at = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     likes = models.IntegerField(default=0)
 

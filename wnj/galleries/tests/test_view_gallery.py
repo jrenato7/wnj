@@ -122,4 +122,35 @@ class GalleryAddLikePicture(TestCase):
         self.assertEqual(302, self.resp.status_code)
 
 
+class GalleryOrderByPicture(TestCase):
+    def setUp(self):
+        user = User(email='nickb@wnj.com', first_name='Nick')
+        user.set_password('N%sd00_pTs')
+        user.save()
+        self.client.login(username='nickb@wnj.com', password='N%sd00_pTs')
+        g1 = Gallery.objects.create(id=1, user=user, likes=4, approved=True,
+                                    image='http://wnj.s3.com/media/img-1')
+        g1.created_at = '2018-1-7'
+        g1.save()
+        g2 = Gallery.objects.create(id=2, user=user, likes=10, approved = True,
+                               image='http://wnj.s3.com/media/img-1')
+        g2.created_at = '2018-2-15'
+        g2.save()
+        g3 = Gallery.objects.create(id=3, user=user, likes=0, approved = True,
+                               image='http://wnj.s3.com/media/img-1')
+        g3.created_at = '2018-3-23'
+        g3.save()
 
+    def test_picture_order_by_like(self):
+        """Must return the pictures ordered by the number of likes"""
+        resp = self.client.get('/gallery/like')
+        seq2 = [img.id for img in resp.context['images']]
+        seq1 = [2, 1, 3]
+        self.assertSequenceEqual(seq1, seq2)
+
+    def test_picture_order_by_created(self):
+        """Must return the pictures ordered by creation date"""
+        resp = self.client.get('/gallery/date')
+        seq2 = [img.id for img in resp.context['images']]
+        seq1 = [3, 2, 1]
+        self.assertSequenceEqual(seq1, seq2)
