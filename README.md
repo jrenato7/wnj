@@ -36,7 +36,8 @@ python manage.py createsuperuser
 5. Set the aws credentials.
 6. Set the aws bucket.
 7. Send the code to Heroku.
-
+8. Perform the migrations.
+9. Create a superuser.
 
 ```console
 heroku create my_instance
@@ -48,5 +49,6 @@ heroku config:set AWS_ACCESS_KEY_ID=<your aws key ID>
 heroku config:set AWS_SECRET_ACCESS_KEY=<your aws secret access key>
 heroku config:set S3_BUCKET_NAME=<the bucket name>
 git push heroku master --force 
-
+heroku run python manage.py migrate
+heroku run python manage.py createsuperuser
 ```
