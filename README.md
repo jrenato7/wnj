@@ -13,8 +13,9 @@ You can temporally see a demo [here](https://wnj.herokuapp.com/).
 3. Activate the virtualenv.
 4. Install the requirements.
 5. Setup the instance with .env
-6. Run the tests.
-7. Add a superuser to access the admin area.
+6. Perform the migrations.
+7. Run the tests.
+8. Add a superuser to access the admin area.
 
 ```console
 git clone git@github.com/jrenato7/wnj.git wnj
@@ -23,6 +24,7 @@ python -m venv .wnj
 source .wnj/bin/activate
 pip install -r requirements.txt
 cp contrib/env-sample .env
+python manage.py migrate
 python manage.py test 
 python manage.py createsuperuser 
 ```
