@@ -19,7 +19,7 @@ from django.contrib.auth.views import login, logout
 
 from wnj.core.views import home
 from wnj.accounts.views import sign_up
-from wnj.galleries.views import gallery, moments, add_picture
+from wnj.galleries.views import gallery, moments, add_picture, like
 
 
 urlpatterns = [
@@ -31,4 +31,5 @@ urlpatterns = [
     path('gallery/', gallery),
     path('moments/', moments),
     path('add_picture/', add_picture),
+    path('like/<int:pk>', like),
 ]

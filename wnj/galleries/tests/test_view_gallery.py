@@ -98,3 +98,28 @@ class GalleryAddPostValid(TestCase):
     def test_template(self):
         """Must use template galleries/add_picture.html"""
         self.assertTemplateUsed(self.resp, 'galleries/moments.html')
+
+
+class GalleryAddLikePicture(TestCase):
+    def setUp(self):
+        user = User(email='nickb@wnj.com', first_name='Nick')
+        user.set_password('N%sd00_pTs')
+        user.save()
+        self.client.login(username='nickb@wnj.com', password='N%sd00_pTs')
+
+        Gallery.objects.create(id=1, user=user, likes=4, created_at='2018-1-1',
+            image='http://wnj.s3.com/media/img-1')
+
+        self.resp = self.client.get('/like/1')
+
+    def test_picture_add_like(self):
+        """Must increase in 1 the number of likes"""
+        gallery = Gallery.objects.get(pk=1)
+        self.assertEqual(gallery.likes, 5)
+
+    def test_status_code(self):
+        """Must return status code 302"""
+        self.assertEqual(302, self.resp.status_code)
+
+
+

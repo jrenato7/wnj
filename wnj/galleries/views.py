@@ -50,6 +50,18 @@ def add_picture(request):
     return render(request, 'galleries/gallery_add.html', context)
 
 
+@login_required
+def like(request, pk):
+    try:
+        gallery = Gallery.objects.get(pk=pk)
+        gallery.likes += 1
+        gallery.save()
+    except Gallery.DoesNotExist:
+        pass
+    return HttpResponseRedirect('/gallery/')
+
+
+
 def _upload_image(file_, user_):
     user_path = ''.join([user_.replace('@', '_').replace('.', '_'), '/'])
 
