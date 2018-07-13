@@ -14,6 +14,7 @@ You can temporally see a demo [here](https://wnj.herokuapp.com/).
 4. Install the requirements.
 5. Setup the instance with .env
 6. Run the tests.
+7. Add a superuser to access the admin area.
 
 ```console
 git clone git@github.com/jrenato7/wnj.git wnj
@@ -23,6 +24,7 @@ source .wnj/bin/activate
 pip install -r requirements.txt
 cp contrib/env-sample .env
 python manage.py test 
+python manage.py createsuperuser 
 ```
 
 ## How to deploy?
